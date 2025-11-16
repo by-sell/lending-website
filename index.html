@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BySell - Your One-Stop Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Global ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
+body{background:#121212;color:#e0e0e0;scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+section{padding:4rem 5%;}
+h2{font-size:2.5rem;margin-bottom:1rem;color:#fff;text-align:center;}
+p{font-size:1.1rem;max-width:800px;margin:0 auto;line-height:1.6;color:#bbb;text-align:center;}
+
+/* ===== Header ===== */
+header{background:#111;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;position:sticky;top:0;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+header .logo{display:flex;align-items:center;gap:0.5rem;font-size:1.8rem;font-weight:bold;color:#ffdd00;}
+header .logo img{width:40px;height:40px;}
+header nav ul{display:flex;gap:1rem;}
+header nav ul li a{transition:0.3s;}
+header nav ul li a:hover{color:#ffdd00;}
+
+/* ===== Top Buttons ===== */
+.top-buttons{display:flex;justify-content:center;gap:1rem;margin:1.5rem 0;flex-wrap:wrap;}
+.top-buttons a{display:flex;align-items:center;gap:0.5rem;padding:0.8rem 1.8rem;border-radius:8px;font-weight:bold;color:#fff;background:#1da1f2;box-shadow:0 5px 15px rgba(0,0,0,0.2);transition:0.3s;}
+.top-buttons a.download{background:#ffdd00;color:#111;}
+.top-buttons a:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+
+/* ===== Hero ===== */
+.hero{display:flex;justify-content:center;align-items:center;height:80vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('images/page1.jpg') no-repeat center/cover;color:#fff;text-align:center;flex-direction:column;padding:0 2rem;}
+.hero h1{font-size:3rem;margin-bottom:1rem;animation:fadeInDown 1s ease forwards;}
+.hero p{font-size:1.2rem;margin-bottom:2rem;animation:fadeInUp 1s ease forwards;}
+.hero button{padding:0.8rem 2rem;font-size:1rem;border:none;background:#ffdd00;color:#111;border-radius:5px;cursor:pointer;transition:0.3s;}
+.hero button:hover{background:#e6c800;}
+
+/* ===== Slider ===== */
+.slider{position:relative;width:90%;margin:3rem auto;overflow:hidden;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.slides{display:flex;transition:0.6s all ease-in-out;}
+.slides img{width:100%;flex-shrink:0;border-radius:15px;}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:2rem;color:#fff;background:rgba(0,0,0,0.4);padding:0.5rem;cursor:pointer;border-radius:50%;user-select:none;}
+.arrow.left{left:10px;}
+.arrow.right{right:10px;}
+.arrow:hover{background:rgba(0,0,0,0.7);}
+.dots{display:flex;justify-content:center;gap:0.5rem;margin-top:1rem;}
+.dot{width:12px;height:12px;border-radius:50%;background:#ccc;cursor:pointer;transition:0.3s;}
+.dot.active{background:#ffdd00;}
+
+/* ===== Services Cards ===== */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem;}
+.service-card{background:#1e1e1e;padding:2rem;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s;text-align:center;}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.service-card h3{font-size:1.5rem;margin-bottom:0.5rem;color:#fff;}
+
+/* ===== Products ===== */
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem;}
+.product-card{background:#1e1e1e;padding:1rem;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s;text-align:center;}
+.product-card:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.product-card img{width:100%;border-radius:12px;margin-bottom:0.8rem;}
+
+/* ===== Flutter Section ===== */
+.flutter{display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:3rem;}
+.flutter img{width:200px;margin:1rem 0;}
+.flutter h3{margin-bottom:1rem;}
+
+/* ===== Contact ===== */
+.contact{background:#111;color:#fff;text-align:center;}
+.contact form{max-width:500px;margin:2rem auto 0;display:flex;flex-direction:column;gap:1rem;}
+.contact form input,.contact form textarea{padding:0.8rem;border-radius:5px;border:none;}
+.contact form button{padding:0.8rem;border:none;border-radius:5px;background:#ffdd00;color:#111;font-weight:bold;cursor:pointer;transition:0.3s;}
+.contact form button:hover{background:#e6c800;}
+
+/* ===== Footer ===== */
+footer{text-align:center;padding:2rem;background:#222;color:#aaa;}
+
+/* ===== Animations ===== */
+@keyframes fadeInDown{0%{opacity:0;transform:translateY(-50px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(50px);}100%{opacity:1;transform:translateY(0);}}
+
+@media(max-width:768px){
+.hero h1{font-size:2.2rem;}
+.hero p{font-size:1rem;}
+.top-buttons{flex-direction:column;gap:0.8rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="images/aplogo.jpg" alt="BySell Logo">
+    BySell
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Top Buttons -->
+<div class="top-buttons">
+  <a href="https://t.me/" target="_blank">
+    Join gram
+  </a>
+  <a href="https://play.google.com/store/apps/details?id=example" target="_blank" class="download">
+    Android
+  </a>
+  <a href="https://apps.apple.com/app/idexample" target="_blank" class="download">
+     iOS
+  </a>
+  <a href="https://example.com/app.apk" target="_blank" class="download">
+    Download BySell Android App
+  </a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <h1>Welcome to BySell</h1>
+  <p>Your one-stop shop for amazing products.</p>
+  <button>Explore Now</button>
+</section>
+
+<!-- Slider -->
+<section class="slider" id="slider">
+  <div class="slides">
+    <img src="images/page1.jpg" alt="Page 1">
+    <img src="images/page2.jpg" alt="Page 2">
+    <img src="images/page3.jpg" alt="Page 3">
+    <img src="images/page4.jpg" alt="Page 4">
+    <img src="images/page5.jpg" alt="Page 5">
+    <img src="images/page6.jpg" alt="Page 6">
+    <img src="images/page7.jpg" alt="Page 7">
+  </div>
+  <div class="arrow left">&#10094;</div>
+  <div class="arrow right">&#10095;</div>
+  <div class="dots"></div>
+</section>
+
+<!-- Products -->
+<section id="products">
+  <h2>Our Products</h2>
+  <div class="products">
+    <div class="product-card"><img src="images/product1.jpg"><h3>Product 1</h3></div>
+    <div class="product-card"><img src="images/product2.jpg"><h3>Product 2</h3></div>
+    <div class="product-card"><img src="images/product3.jpg"><h3>Product 3</h3></div>
+    <div class="product-card"><img src="images/product4.jpg"><h3>Product 4</h3></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service-card"><h3>Fast Delivery</h3><p>We deliver your products fast and safe.</p></div>
+    <div class="service-card"><h3>Quality Products</h3><p>Top-notch quality products guaranteed.</p></div>
+    <div class="service-card"><h3>Customer Support</h3><p>24/7 support for all your queries.</p></div>
+  </div>
+</section>
+   
+<!-- Flutter App Section -->
+<section class="flutter">
+  <h2>Download Our BySell Android App</h2>
+  <p>Experience BySell on your mobile. Fast, secure and smooth app for all devices.</p>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2>About BySell</h2>
+  <p>BySell is committed to providing the best products with top-notch quality. Our mission is to deliver satisfaction and trust to every customer.</p>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 BySell. All Rights Reserved.
+</footer>
+
+<!-- Slider Script -->
+<script>
+const slidesContainer = document.querySelector('.slides');
+const slides = document.querySelectorAll('.slides img');
+const totalSlides = slides.length;
+const leftArrow = document.querySelector('.arrow.left');
+const rightArrow = document.querySelector('.arrow.right');
+const dotsContainer = document.querySelector('.dots');
+let index = 0;
+let startX = 0;
+let isDragging = false;
+
+// Create dots
+for(let i=0;i<totalSlides;i++){
+  const dot = document.createElement('div');
+  dot.classList.add('dot');
+  if(i===0) dot.classList.add('active');
+  dot.addEventListener('click', ()=>{goToSlide(i);});
+  dotsContainer.appendChild(dot);
+}
+const dots = document.querySelectorAll('.dot');
+
+function updateSlide(){
+  slidesContainer.style.transform = `translateX(${-index*100}%)`;
+  dots.forEach(dot=>dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+function goToSlide(i){index=i; updateSlide();}
+function nextSlide(){index++; if(index>=totalSlides) index=0; updateSlide();}
+function prevSlide(){index--; if(index<0) index=totalSlides-1; updateSlide();}
+
+rightArrow.addEventListener('click',nextSlide);
+leftArrow.addEventListener('click',prevSlide);
+
+let autoSlide = setInterval(nextSlide,3000);
+document.querySelector('.slider').addEventListener('mouseenter',()=>clearInterval(autoSlide));
+document.querySelector('.slider').addEventListener('mouseleave',()=>autoSlide=setInterval(nextSlide,3000));
+
+slidesContainer.addEventListener('touchstart',(e)=>{startX=e.touches[0].clientX; isDragging=true;});
+slidesContainer.addEventListener('touchmove',(e)=>{
+  if(!isDragging) return;
+  let moveX = e.touches[0].clientX;
+  let diff = startX - moveX;
+  if(diff > 50){nextSlide(); isDragging=false;}
+  else if(diff < -50){prevSlide(); isDragging=false;}
+});
+slidesContainer.addEventListener('touchend',()=>{isDragging=false;});
+</script>
+</body>
+</html>
