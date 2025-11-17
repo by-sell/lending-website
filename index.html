@@ -48,6 +48,26 @@ header nav ul li a:hover{color:#ffdd00;}
 .dot{width:12px;height:12px;border-radius:50%;background:#ccc;cursor:pointer;transition:0.3s;}
 .dot.active{background:#ffdd00;}
 
+.download-showcase {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: #ffdd00;
+  color: #111;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.download-showcase:hover {
+  transform: translate(-50%, -3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
 /* ===== Services Cards ===== */
 .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem;}
 .service-card{background:#1e1e1e;padding:2rem;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s;text-align:center;}
@@ -108,7 +128,6 @@ footer{text-align:center;padding:2rem;background:#222;color:#aaa;}
 <!-- Top Buttons -->
 <div class="top-buttons">
 
-
   <a href="https://t.me/" target="_blank">
     Join Our Telegram
   </a>
@@ -132,6 +151,7 @@ footer{text-align:center;padding:2rem;background:#222;color:#aaa;}
 
 <!-- Slider -->
 <section class="slider" id="slider">
+  <a href="assets/showcase.pdf" class="download-showcase" download>Download PDF</a>
   <div class="slides">
     <img src="images/page1.jpg" alt="Page 1">
     <img src="images/page2.jpg" alt="Page 2">
